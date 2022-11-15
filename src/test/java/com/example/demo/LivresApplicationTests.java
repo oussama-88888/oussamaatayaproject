@@ -20,7 +20,7 @@ class LivresApplicationTests {
 	
 	@Test
 	public void testCreateLivre() {
-	Livre prod = new Livre("jemil",500.00,new Date());
+	Livre prod = new Livre("oussama",745.00,new Date());
 	livreRepository.save(prod);
 	}
 	@Test

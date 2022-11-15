@@ -15,8 +15,6 @@ List<Livre> findByNomLivre(String nom);
 List<Livre> findByNomLivreContains(String nom);
 
 
-/*@Query("select l from Livre p where p.nomLivre like %?1 and p.prixLivre > ?2")
-List<Livre> findByNomPrix (String nom, Double prix);*/
 
 @Query("select p from Livre p where p.nomLivre like %:nom and p.prixLivre> :prix")
 List<Livre> findByNomPrix (@Param("nom") String nom,@Param("prix") Double prix);

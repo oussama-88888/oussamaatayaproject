@@ -15,7 +15,7 @@ import com.example.demo.service.LivreService;
 
 @RestController
 @RequestMapping("/api")
-@CrossOrigin
+@CrossOrigin()
 public class LivreRESTController {
 	 
 	@Autowired
@@ -43,9 +43,13 @@ public class LivreRESTController {
 	{
 		livreService.deleteLivreById(id);
 	}
-	@RequestMapping(value="/prodscat/{idAut}",method = RequestMethod.GET)
+	@RequestMapping(value="/livaut/{idAut}",method = RequestMethod.GET)
 	public List<Livre> getLivresByAutId(@PathVariable("idAut") Long idAut) {
 		return livreService.findByAuteurIdAut(idAut);
+	}
+	@RequestMapping(value="/livsByName/{nom}",method = RequestMethod.GET)
+	public List<Livre> findByNomLivreContains(@PathVariable("nom") String nom) {
+	return livreService.findByNomLivreContains(nom);
 	}
 	
 }
